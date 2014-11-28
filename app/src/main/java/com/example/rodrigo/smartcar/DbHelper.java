@@ -31,6 +31,21 @@ public class DbHelper {
     public void addObject(String arg0, String arg2){
         sqlDataBase.execSQL("INSERT INTO objeto (nom_objeto, descripcion) VALUES ('"+arg0+"', '"+arg2+"')");
     }
+    
+    public void addUsuario(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7, String arg8){
+        sqlDataBase.execSQL("INSERT INTO Usuario (idUsuario, nombres, apellidoP, apellidoM, telefono, correo, esAdmin, tarjeta, tarjetaCV) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"', '"+arg5+"', '"+arg6+"', '"+arg7+"', '"+arg8+"')");
+    }
+    
+    public void addAuto(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6){
+        sqlDataBase.execSQL("INSERT INTO Usuario (idAuto, marca, modelo, placas, bateria, latitud, longitud) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"', '"+arg5+"', '"+arg6+"')");
+    }
+    
+    public void addReservacion(String arg0, String arg1, String arg2, String arg3, String arg4){
+        sqlDataBase.execSQL("INSERT INTO Usuario (idUsuario, idauto, idReservación, horaReservacion, horaLimite) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"')");
+    }
+    public void addRenta(String arg0, String arg1, String arg2, String arg3, String arg4){
+        sqlDataBase.execSQL("INSERT INTO Usuario (idUsuario, idAuto, idRenta, tiempo, costo) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"')");
+    }
 
     public List<Objeto> getAllObjects(){
         List<Objeto> result = new ArrayList<Objeto>();
@@ -43,7 +58,4 @@ public class DbHelper {
         cursor.close();
         return result;
     }
-
-
-
 }
