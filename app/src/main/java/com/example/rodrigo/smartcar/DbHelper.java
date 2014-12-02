@@ -41,18 +41,18 @@ public class DbHelper {
     }
     
     public void addReservacion(String arg0, String arg1, String arg2, String arg3, String arg4){
-        sqlDataBase.execSQL("INSERT INTO Usuario (idUsuario, idauto, idReservaci�n, horaReservacion, horaLimite) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"')");
+        sqlDataBase.execSQL("INSERT INTO Usuario (idUsuario, idauto, idReservacion, horaReservacion, horaLimite) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"')");
     }
     public void addRenta(String arg0, String arg1, String arg2, String arg3, String arg4){
         sqlDataBase.execSQL("INSERT INTO Usuario (idUsuario, idAuto, idRenta, tiempo, costo) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"')");
     }
 
-    public List<Objeto> getAllObjects(){
-        List<Objeto> result = new ArrayList<Objeto>();
+    public List<Auto> getAllAutos(){
+        List<Auto> result = new ArrayList<Auto>();
         Cursor cursor = sqlDataBase.query("objeto", DbCreation.allObjetoColumns, null, null, null, null, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
-            result.add(new Objeto(cursor.getString(1),cursor.getString(2)));
+            result.add(new Auto(cursor.getInt(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),cursor.getString(7)));
             cursor.moveToNext();
         }
         cursor.close();

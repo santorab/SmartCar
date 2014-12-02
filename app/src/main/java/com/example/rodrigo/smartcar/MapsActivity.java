@@ -68,7 +68,7 @@ public class MapsActivity extends FragmentActivity  {
         database.addRenta(2, 4, 1, "34", "119")
 
         ruta1 = new ObjectLayer(dataBase.regresaRuta(1), "1");
-        ruta2 = new ObjectLayer(dataBase.regresaRuta(2), "2");
+       ruta2 = new ObjectLayer(dataBase.regresaRuta(2), "2");
         ruta3 = new ObjectLayer(dataBase.regresaRuta(3), "3");
 
         layerManager.add(ruta1);
