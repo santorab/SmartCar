@@ -36,8 +36,8 @@ public class DbHelper {
         sqlDataBase.execSQL("INSERT INTO Usuario (idUsuario, nombres, apellidoP, apellidoM, telefono, correo, esAdmin, tarjeta, tarjetaCV) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"', '"+arg5+"', '"+arg6+"', '"+arg7+"', '"+arg8+"')");
     }
     
-    public void addAuto(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6){
-        sqlDataBase.execSQL("INSERT INTO Usuario (idAuto, marca, modelo, placas, bateria, latitud, longitud) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"', '"+arg5+"', '"+arg6+"')");
+    public void addAuto(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7){
+        sqlDataBase.execSQL("INSERT INTO Usuario (idAuto, marca, modelo, placas, bateria, latitud, longitud, estado) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"', '"+arg5+"', '"+arg6+"', '"+arg7+"')");
     }
     
     public void addReservacion(String arg0, String arg1, String arg2, String arg3, String arg4){
