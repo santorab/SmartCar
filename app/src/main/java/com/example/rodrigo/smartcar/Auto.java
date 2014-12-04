@@ -9,6 +9,7 @@ public class Auto {
     public String bateria;
     public String latitud;
     public String longitud;
+    public String estado;
     
     public Auto(int idCar, String brand, String model, String plates, String energy, String lat, String longi){
         idAuto = idCar;
@@ -18,8 +19,11 @@ public class Auto {
         bateria = energy;
         latitud = lat;
         longitud = longi;
+
     }
-    
+
+
+
     public String getMarca(){
         return marca;
     }

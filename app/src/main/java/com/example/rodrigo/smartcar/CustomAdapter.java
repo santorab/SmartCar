@@ -18,13 +18,13 @@ public class CustomAdapter extends BaseAdapter {
 
 
     private final Context context;
-    private List<Objeto> values;
+    private List<Auto> values;
     /**
      * instancia un nuevo objeto
      * @param context el contexto de la aplicacion
      * @param values lista generica en selector con el contenido de todos los elementos que se pintaran
      */
-    public CustomAdapter(Context context, List<Objeto> values){
+    public CustomAdapter(Context context, List<Auto> values){
         this.context = context;
         this.values = values;
     }
@@ -54,7 +54,7 @@ public class CustomAdapter extends BaseAdapter {
         }
         TextView title = (TextView)arg1.findViewById(R.id.titulo);
         ImageView icon = (ImageView)arg1.findViewById(R.id.iconito);
-        title.setText(values.get(arg0).getNomObjeto());
+        title.setText(values.get(arg0).getPlacas());
         icon.setImageDrawable(context.getResources().getDrawable(R.drawable.icono));
         return arg1;
     }

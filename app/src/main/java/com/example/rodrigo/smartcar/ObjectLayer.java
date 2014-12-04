@@ -18,7 +18,7 @@ public class ObjectLayer {
         values = new ArrayList<Auto>();
     }
 
-    public ObjectLayer(List<Auto> args, String snippet){
+    public ObjectLayer(List<Auto> args){
         this.values = args;
         this.snippet = snippet;
     }
@@ -31,7 +31,7 @@ public class ObjectLayer {
         values.add(obj);
     }
 
-    public Auto getObjeto(int i){
+    public Auto getAuto(int i){
         return this.values.get(i);
     }
 

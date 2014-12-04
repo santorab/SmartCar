@@ -37,19 +37,19 @@ public class DbHelper {
     }
     
     public void addAuto(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7){
-        sqlDataBase.execSQL("INSERT INTO Usuario (idAuto, marca, modelo, placas, bateria, latitud, longitud, estado) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"', '"+arg5+"', '"+arg6+"', '"+arg7+"')");
+        sqlDataBase.execSQL("INSERT INTO Auto (idAuto, marca, modelo, placas, bateria, latitud, longitud, estado) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"', '"+arg5+"', '"+arg6+"', '"+arg7+"')");
     }
     
     public void addReservacion(String arg0, String arg1, String arg2, String arg3, String arg4){
-        sqlDataBase.execSQL("INSERT INTO Usuario (idUsuario, idauto, idReservacion, horaReservacion, horaLimite) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"')");
+        sqlDataBase.execSQL("INSERT INTO Reservacion(idUsuarioReserva, idAutoReserva, idReservacion, horaReservacion, horaLimite) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"')");
     }
     public void addRenta(String arg0, String arg1, String arg2, String arg3, String arg4){
-        sqlDataBase.execSQL("INSERT INTO Usuario (idUsuario, idAuto, idRenta, tiempo, costo) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"')");
+        sqlDataBase.execSQL("INSERT INTO Renta (idUsuarioRenta, idAutoRenta, idRenta, tiempo, costo) VALUES('"+arg0+"', '"+arg1+"', '"+arg2+"', '"+arg3+"', '"+arg4+"')");
     }
 
     public List<Auto> getAllAutos(){
         List<Auto> result = new ArrayList<Auto>();
-        Cursor cursor = sqlDataBase.query("objeto", DbCreation.allObjetoColumns, null, null, null, null, null);
+        Cursor cursor = sqlDataBase.query("auto", DbCreation.allAutoColumns, null, null, null, null, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             result.add(new Auto(cursor.getInt(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),cursor.getString(7)));
@@ -60,10 +60,10 @@ public class DbHelper {
     }
 
 
-    public List<Auto> regresaRuta(int idRuta)
+    public List<Auto> regresaAutos( )
     {
         List<Auto> result = new ArrayList<Auto>();
-        String qry= "Select * from auto";
+        String qry= "Select * from Auto";
         Cursor cursor = sqlDataBase.rawQuery(qry, null);
 
         cursor.moveToFirst();

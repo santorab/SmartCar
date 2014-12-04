@@ -1,3 +1,6 @@
+package com.example.rodrigo.smartcar;
+
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -9,6 +12,7 @@ public class DbCreation extends SQLiteOpenHelper {
     
     public static final String Usuario = "usuario";
     public static final String idUsuario = "idUsuario";
+
     public static final String nombres = "nombres";
     public static final String apellidoP = "apellidoP";
     public static final String apellidoM = "apellidoM";
@@ -29,7 +33,7 @@ public class DbCreation extends SQLiteOpenHelper {
     public static final String estado = "estado";
     
     public static final String Reservacion = "Reservacion";
-    public static final String idUsuarioReserva = "idUsiarioReserva";
+    public static final String idUsuarioReserva = "idUsuarioReserva";
     public static final String idAutoReserva = "idAutoReserva";
     public static final String idReservacion = "idReservacion";
     public static final String horaReservacion = "horaReservacion";
@@ -41,7 +45,10 @@ public class DbCreation extends SQLiteOpenHelper {
     public static final String idRenta = "idRenta";
     public static final String tiempo = "tiempo";
     public static final String costo = "costo";
-    //public static String[] allObjetoColumns = {ID_OBJETO,NOM_OBJETO,DESCRIPCION,LAT_OBJETO,LONG_OBJETO};
+
+
+    public static String[] allAutoColumns = {idAuto,marca,modelo,placas,bateria,latitud,longitud,estado};
+
     private static final String  CREATE_TABLE_USUARIO= 
             "create table " +
                     Usuario + " (" +
@@ -58,14 +65,14 @@ public class DbCreation extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_AUTO =
             "create table " +
                     Auto + " (" +
-                    idAuto + " integer not null, " +
-                    marca + " text not null, " +
-                    modelo + " text not null, " +
-                    placas + " text not null, " +
-                    bateria + " text not null, " +
-                    latitud + " text not null, " +
-                    longitud + " text not null, " +
-                    estado + " text not null ";
+                    idAuto + " integer, " +
+                    marca + " text, " +
+                    modelo + " text, " +
+                    placas + " text, " +
+                    bateria + " text, " +
+                    latitud + " text, " +
+                    longitud + " text, " +
+                    estado + " text)";
     
     private static final String CREATE_TABLE_RESERVACION =
             "create table " +
@@ -74,7 +81,7 @@ public class DbCreation extends SQLiteOpenHelper {
                     idAutoReserva + " integer not null, " +
                     idReservacion + " integer not null, " +
                     horaReservacion + " text not null, " + //Fecha y hora
-                    horaLimite + " text not null, "; //Fecha y hora
+                    horaLimite + " text not null )"; //Fecha y hora
     
     private static final String CREATE_TABLE_RENTA =
             "create table " +
@@ -83,17 +90,17 @@ public class DbCreation extends SQLiteOpenHelper {
                     idAutoRenta + " integer not null, " +
                     idRenta + " integer not null, " +
                     tiempo + " text not null, " +
-                    costo + " text not null, ";
+                    costo + " text not null)";
     
     
     public DbCreation(Context context){
         super(context, DATABASE_NAME, null, 1);
     }
     public void onCreate(SQLiteDatabase arg0) {
-		  //arg0.execSQL(CREATE_TABLE_USUARIO);
-        //arg0.execSQL(CREATE_TABLE_AUTO);
-        //arg0.execSQL(CREATE_TABLE_RENTA);
-       // arg0.execSQL(CREATE_TABLE_RESERVACION);
+		  arg0.execSQL(CREATE_TABLE_USUARIO);
+        arg0.execSQL(CREATE_TABLE_AUTO);
+        arg0.execSQL(CREATE_TABLE_RENTA);
+        arg0.execSQL(CREATE_TABLE_RESERVACION);
         
     }
     public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {

@@ -20,7 +20,7 @@ public class Renta {
         return tiempo;
     }
     
-    public String getCosto(){
+    public double getCosto(){
         return costo;
     }
     
